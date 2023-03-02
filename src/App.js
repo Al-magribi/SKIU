@@ -6,6 +6,7 @@ import Team from "./pages/Team";
 import Inventory from "./pages/Inventory";
 import HeavyTools from "./pages/HeavyTools";
 import Login from "./pages/Login";
+import Dasboard from "./pages/Admin/Dasboard";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path="/alat-berat" element={<HeavyTools />} />
 
           <Route path="/login" element={<Login />} />
+
+          <Route path="/admin" element={<Dasboard />} />
         </Routes>
       </BrowserRouter>
     </div>

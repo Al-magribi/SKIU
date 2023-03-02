@@ -192,7 +192,7 @@ const Header = () => {
               component={Link}
               to="/login"
               sx={{
-                display: "flex",
+                display: { xs: "none", md: "flex" },
                 alignItems: "center",
                 justifyContent: "end",
                 height: "100%",

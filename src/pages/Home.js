@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-import { team, projects, equipts } from "../Data";
+import { projects, equipts } from "../Data";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -84,67 +84,7 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ bgcolor: "#F5F5F5", pb: 4, pt: 4 }}>
-        <Box
-          sx={{
-            width: "100%",
-          }}
-        >
-          <Box
-            sx={{
-              height: "50px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-            }}
-          >
-            <Typography
-              variant="h1"
-              fontFamily="nunito"
-              sx={{ fontSize: "32px", fontWeight: "bold" }}
-            >
-              MEET OUR TEAM
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {team.slice(0, 4).map((user) => (
-              <Card key={user.id} sx={{ width: 330, m: 2 }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={user.img}
-                    alt="green iguana"
-                  />
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Typography gutterBottom variant="h5" component="div">
-                      {user.nama.toUpperCase()}
-                    </Typography>
-                    <Typography variant="body2" color="#FF6E31">
-                      {user.jabatan.toUpperCase()}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            ))}
-          </Box>
-        </Box>
-      </Box>
+
       <Box sx={{ bgcolor: "#E8E2E2", pt: 4, pb: 4 }}>
         <Box
           sx={{
@@ -177,7 +117,7 @@ const Home = () => {
             }}
           >
             {projects.slice(0, 4).map((item) => (
-              <Card key={item.id} sx={{ width: 330, m: 2 }}>
+              <Card key={item.id} sx={{ width: 300, m: 2 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -244,7 +184,7 @@ const Home = () => {
             }}
           >
             {equipts.slice(0, 4).map((item) => (
-              <Card key={item.id} sx={{ width: 330, m: 2 }}>
+              <Card key={item.id} sx={{ width: 300, m: 2 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -275,7 +215,7 @@ const Home = () => {
       </Box>
       <Box
         sx={{
-          height: "400px",
+          height: "300px",
           width: "100%",
           display: "flex",
           alignItems: "center",
