@@ -17,6 +17,7 @@ import { team, projects, equipts, inventory } from "../../Data";
 import { Avatar } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import PageName from "../PageName";
+import AdminFooter from "./Components/AdminFooter";
 
 const drawerWidth = 160;
 
@@ -214,153 +215,163 @@ const Dasboard = () => {
   ];
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        bgcolor: "#F1EEE9",
-        height: { xs: "auto", md: "100vh" },
-      }}
-    >
-      <PageName title={"Dashboard"} />
-      <CssBaseline />
-      <AppBar position="fixed" sx={{ bgcolor: "#243763" }} open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ letterSpacing: 2 }}
-          >
-            ADMINISTRATOR
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <MenuDashboard open={open} />
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
+    <React.Fragment>
+      <Box
+        sx={{
+          display: "flex",
+          bgcolor: "#F1EEE9",
+          height: { xs: "auto", md: "100vh" },
+        }}
+      >
+        <PageName title={"Dashboard"} />
+        <CssBaseline />
+        <AppBar position="fixed" sx={{ bgcolor: "#243763" }} open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ letterSpacing: 2 }}
+            >
+              ADMINISTRATOR
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <MenuDashboard open={open} />
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
 
-        <ListDashboard />
+          <ListDashboard
+            team={team}
+            project={projects}
+            inventory={inventory}
+            equip={equipts}
+          />
 
-        <Box
-          sx={{
-            mt: 3,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: { xs: "column", md: "row" },
-          }}
-        >
-          {/* TEAM */}
           <Box
             sx={{
-              flex: 1,
-              p: 1,
-              m: 1,
-              width: "280px",
+              mt: 3,
+              display: "flex",
+              alignItems: "start",
+              justifyContent: "center",
+              flexDirection: { xs: "column", md: "row" },
             }}
           >
-            <DataGrid
-              rows={team}
-              getRowId={(row) => row.id}
-              columns={teams}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick
-              autoHeight
-              style={{ width: "100%" }}
-            />
+            {/* TEAM */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 1,
+                m: 1,
+                width: "280px",
+              }}
+            >
+              <DataGrid
+                rows={team}
+                getRowId={(row) => row.id}
+                columns={teams}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                disableSelectionOnClick
+                autoHeight
+                style={{ width: "100%" }}
+              />
+            </Box>
+
+            {/* PROJECT */}
+            <Box
+              s
+              sx={{
+                flex: 1,
+                p: 1,
+                m: 1,
+                width: "280px",
+              }}
+            >
+              <DataGrid
+                rows={projects}
+                getRowId={(row) => row.id}
+                columns={projectsData}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                disableSelectionOnClick
+                autoHeight
+                style={{ width: "100%" }}
+              />
+            </Box>
+
+            {/* INVENTORY */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 1,
+                m: 1,
+                width: "280px",
+              }}
+            >
+              <DataGrid
+                rows={inventory}
+                getRowId={(row) => row.id}
+                columns={inventoryData}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                disableSelectionOnClick
+                autoHeight
+                style={{ width: "100%" }}
+              />
+            </Box>
+
+            {/* EQUIPMENT */}
+            <Box
+              sx={{
+                flex: 1,
+                p: 1,
+                m: 1,
+                width: "280px",
+              }}
+            >
+              <DataGrid
+                rows={equipts}
+                getRowId={(row) => row.id}
+                columns={equipData}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                disableSelectionOnClick
+                autoHeight
+                style={{ width: "100%" }}
+              />
+            </Box>
           </Box>
-
-          {/* PROJECT */}
-          <Box
-            s
-            sx={{
-              flex: 1,
-              p: 1,
-              m: 1,
-              width: "280px",
-            }}
-          >
-            <DataGrid
-              rows={projects}
-              getRowId={(row) => row.id}
-              columns={projectsData}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick
-              autoHeight
-              style={{ width: "100%" }}
-            />
-          </Box>
-
-          {/* INVENTORY */}
-          <Box
-            sx={{
-              flex: 1,
-              p: 1,
-              m: 1,
-              width: "280px",
-            }}
-          >
-            <DataGrid
-              rows={inventory}
-              getRowId={(row) => row.id}
-              columns={inventoryData}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick
-              autoHeight
-              style={{ width: "100%" }}
-            />
-          </Box>
-
-          {/* EQUIPMENT */}
-          <Box
-            sx={{
-              flex: 1,
-              p: 1,
-              m: 1,
-              width: "280px",
-            }}
-          >
-            <DataGrid
-              rows={equipts}
-              getRowId={(row) => row.id}
-              columns={equipData}
-              pageSize={5}
-              rowsPerPageOptions={[5]}
-              disableSelectionOnClick
-              autoHeight
-              style={{ width: "100%" }}
-            />
+          <Box sx={{ mt: 7.5 }}>
+            <AdminFooter />
           </Box>
         </Box>
       </Box>
-    </Box>
+    </React.Fragment>
   );
 };
 

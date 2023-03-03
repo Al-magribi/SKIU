@@ -6,7 +6,7 @@ import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 
-const ListDashboard = () => {
+const ListDashboard = ({ team, project, inventory, equip }) => {
   return (
     <Box
       sx={{
@@ -63,7 +63,7 @@ const ListDashboard = () => {
               color="#FF6E31"
               sx={{ fontWeight: "600", fontSize: { xs: "30px", md: "60px" } }}
             >
-              13
+              {team.length}
             </Typography>
           </Box>
         </Box>
@@ -112,7 +112,7 @@ const ListDashboard = () => {
               color="#FF6E31"
               sx={{ fontWeight: "600", fontSize: { xs: "30px", md: "60px" } }}
             >
-              13
+              {project.length}
             </Typography>
           </Box>
         </Box>
@@ -161,7 +161,7 @@ const ListDashboard = () => {
               color="#FF6E31"
               sx={{ fontWeight: "600", fontSize: { xs: "30px", md: "60px" } }}
             >
-              13
+              {inventory.length}
             </Typography>
           </Box>
         </Box>
@@ -210,7 +210,7 @@ const ListDashboard = () => {
               color="#FF6E31"
               sx={{ fontWeight: "600", fontSize: { xs: "30px", md: "60px" } }}
             >
-              13
+              {equip.length}
             </Typography>
           </Box>
         </Box>

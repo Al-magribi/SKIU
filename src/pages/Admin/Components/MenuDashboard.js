@@ -17,40 +17,6 @@ const MenuDashboard = ({ open }) => {
   return (
     <Fragment>
       <List>
-        {/* DASHBOARD */}
-        <ListItem disablePadding sx={{ display: "block" }}>
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-            }}
-            component={Link}
-            to="/admin"
-          >
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
-              }}
-            >
-              <DashboardIcon sx={{ color: "#FF6E31" }} />
-            </ListItemIcon>
-            <ListItemText
-              primary="Dashboard"
-              sx={{
-                opacity: open ? 1 : 0,
-                transition: "all 0.3s ease-out",
-
-                "&:hover": {
-                  color: "#FF6E31",
-                },
-              }}
-            />
-          </ListItemButton>
-        </ListItem>
-
         {/* HOME */}
         <ListItem disablePadding sx={{ display: "block" }}>
           <ListItemButton
@@ -85,6 +51,40 @@ const MenuDashboard = ({ open }) => {
           </ListItemButton>
         </ListItem>
 
+        {/* DASHBOARD */}
+        <ListItem disablePadding sx={{ display: "block" }}>
+          <ListItemButton
+            sx={{
+              minHeight: 48,
+              justifyContent: open ? "initial" : "center",
+              px: 2.5,
+            }}
+            component={Link}
+            to="/admin"
+          >
+            <ListItemIcon
+              sx={{
+                minWidth: 0,
+                mr: open ? 3 : "auto",
+                justifyContent: "center",
+              }}
+            >
+              <DashboardIcon sx={{ color: "#FF6E31" }} />
+            </ListItemIcon>
+            <ListItemText
+              primary="Dashboard"
+              sx={{
+                opacity: open ? 1 : 0,
+                transition: "all 0.3s ease-out",
+
+                "&:hover": {
+                  color: "#FF6E31",
+                },
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+
         {/* HOME SETTING */}
         <ListItem disablePadding sx={{ display: "block" }}>
           <ListItemButton
@@ -94,7 +94,7 @@ const MenuDashboard = ({ open }) => {
               px: 2.5,
             }}
             component={Link}
-            to="/home-setting"
+            to="/admin/setting"
           >
             <ListItemIcon
               sx={{
@@ -127,6 +127,8 @@ const MenuDashboard = ({ open }) => {
               justifyContent: open ? "initial" : "center",
               px: 2.5,
             }}
+            component={Link}
+            to="/admin/team"
           >
             <ListItemIcon
               sx={{
@@ -159,6 +161,8 @@ const MenuDashboard = ({ open }) => {
               justifyContent: open ? "initial" : "center",
               px: 2.5,
             }}
+            component={Link}
+            to="/admin/project"
           >
             <ListItemIcon
               sx={{
@@ -191,6 +195,8 @@ const MenuDashboard = ({ open }) => {
               justifyContent: open ? "initial" : "center",
               px: 2.5,
             }}
+            component={Link}
+            to="/admin/inventories"
           >
             <ListItemIcon
               sx={{
@@ -223,6 +229,8 @@ const MenuDashboard = ({ open }) => {
               justifyContent: open ? "initial" : "center",
               px: 2.5,
             }}
+            component={Link}
+            to="/admin/equipment"
           >
             <ListItemIcon
               sx={{
