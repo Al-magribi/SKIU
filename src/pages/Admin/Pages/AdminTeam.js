@@ -157,7 +157,7 @@ const AdminTeam = () => {
           <Divider />
           <MenuDashboard open={open} />
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <DrawerHeader />
 
           <Box
@@ -198,7 +198,7 @@ const AdminTeam = () => {
             </Box>
 
             {team.map((user) => (
-              <Card key={user.id} sx={{ width: 230, m: 2 }}>
+              <Card key={user.id} sx={{ width: 230, m: 2, height: 240 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -214,7 +214,11 @@ const AdminTeam = () => {
                       flexDirection: "column",
                     }}
                   >
-                    <Typography gutterBottom variant="h6" component="div">
+                    <Typography
+                      gutterBottom
+                      component="div"
+                      sx={{ fontSize: "17px", textAlign: "center" }}
+                    >
                       {user.nama.toUpperCase()}
                     </Typography>
                     <Typography variant="body2" color="#FF6E31">
@@ -238,7 +242,10 @@ const AdminTeam = () => {
               }}
             >
               <div ref={React.useRef(null)}>
-                <AddTeam showModal={showModal} />
+                <AddTeam
+                  showModal={showModal}
+                  close={() => setShowModal(false)}
+                />
               </div>
             </Modal>
           </Box>

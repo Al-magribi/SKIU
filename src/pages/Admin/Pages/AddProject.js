@@ -2,9 +2,9 @@ import { Avatar, Button, Fade, Input, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 
-const AddTeam = ({ showModal, close }) => {
+const AddProject = ({ showModal, close }) => {
   const [preview, setPreview] = useState(
-    "https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+    "https://as1.ftcdn.net/v2/jpg/04/39/19/10/1000_F_439191022_EVi8u4GL82odnwscv4ojtx76cmK79lVD.jpg"
   );
 
   const onChange = (e) => {
@@ -52,8 +52,24 @@ const AddTeam = ({ showModal, close }) => {
               flexDirection: "column",
             }}
           >
-            <TextField label="Nama" variant="outlined" sx={{ m: 1 }} />
-            <TextField label="Jabatan" variant="outlined" sx={{ m: 1 }} />
+            <TextField
+              name="name"
+              label="Projek"
+              variant="outlined"
+              sx={{ m: 1 }}
+            />
+            <TextField
+              name="type"
+              label="Tipe"
+              variant="outlined"
+              sx={{ m: 1 }}
+            />
+            <TextField
+              name="status"
+              label="Status"
+              variant="outlined"
+              sx={{ m: 1 }}
+            />
 
             <Box
               sx={{
@@ -76,7 +92,7 @@ const AddTeam = ({ showModal, close }) => {
               </Avatar>
               <Input
                 type="file"
-                name="avatar"
+                name="inventory"
                 accept="images/*"
                 onChange={onChange}
               />
@@ -106,4 +122,4 @@ const AddTeam = ({ showModal, close }) => {
   );
 };
 
-export default AddTeam;
+export default AddProject;

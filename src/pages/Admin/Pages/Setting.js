@@ -122,7 +122,7 @@ const Setting = () => {
         sx={{
           display: "flex",
           bgcolor: "#F1EEE9",
-          height: "100vh",
+          height: "auto ",
         }}
       >
         <PageName title={"Setting"} />

@@ -12,9 +12,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import MenuDashboard from "../Components/MenuDashboard";
+import AddIcon from "@mui/icons-material/Add";
 
 import PageName from "../../PageName";
-import Footer from "../../../component/Footer/Footer";
+import Backdrop from "@mui/material/Backdrop";
+import {
+  Button,
+  Tooltip,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Modal,
+} from "@mui/material";
+import AdminFooter from "../Components/AdminFooter";
+import { projects } from "../../../Data";
+import AddProject from "./AddProject";
 
 const drawerWidth = 160;
 
@@ -86,6 +99,7 @@ const Drawer = styled(MuiDrawer, {
 const AdminProject = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -101,7 +115,7 @@ const AdminProject = () => {
         sx={{
           display: "flex",
           bgcolor: "#F1EEE9",
-          height: { xs: "auto", md: "100vh" },
+          height: "auto",
         }}
       >
         <PageName title={"Proyek"} />
@@ -143,7 +157,7 @@ const AdminProject = () => {
           <Divider />
           <MenuDashboard open={open} />
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
           <DrawerHeader />
 
           <Box
@@ -153,11 +167,96 @@ const AdminProject = () => {
               alignItems: "center",
               justifyContent: "center",
               flexDirection: { xs: "column", md: "row" },
+              flexWrap: "wrap",
             }}
-          ></Box>
+          >
+            <Box
+              sx={{
+                height: "50px",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "end",
+              }}
+            >
+              <Tooltip title="Tambah Projek" placement="top">
+                <Button
+                  sx={{
+                    mr: 7,
+                    bgcolor: "#FF6E31",
+                    transition: "all 0.3s ease-out",
+
+                    "&:hover": {
+                      bgcolor: "#243763",
+                    },
+                  }}
+                  onClick={() => setShowModal(true)}
+                >
+                  <AddIcon sx={{ color: "white" }} />
+                </Button>
+              </Tooltip>
+            </Box>
+
+            {projects.map((item) => (
+              <Card key={item.id} sx={{ width: 230, m: 2 }}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={item.img}
+                    alt="green iguana"
+                  />
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Typography gutterBottom variant="h5" component="div">
+                      {item.project.toUpperCase()}
+                    </Typography>
+                    <Typography variant="body2" color="#FF6E31">
+                      {item.lokasi.toUpperCase()}
+                    </Typography>
+                    <Typography variant="body2" color="#FF6E31">
+                      {item.waktu.toUpperCase()}
+                    </Typography>
+                    <Typography variant="body2" color="#FF6E31">
+                      {item.progress.toUpperCase()}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            ))}
+
+            <Modal
+              aria-labelledby="transition-modal-title"
+              aria-describedby="transition-modal-description"
+              open={showModal}
+              onClose={() => setShowModal(false)}
+              closeAfterTransition
+              slots={{ backdrop: Backdrop }}
+              slotProps={{
+                backdrop: {
+                  timeout: 500,
+                },
+              }}
+            >
+              <div ref={React.useRef(null)}>
+                <AddProject
+                  showModal={showModal}
+                  close={() => setShowModal(false)}
+                />
+              </div>
+            </Modal>
+          </Box>
+          <Box>
+            <AdminFooter />
+          </Box>
         </Box>
       </Box>
-      <Footer />
     </React.Fragment>
   );
 };
